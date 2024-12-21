@@ -1,13 +1,18 @@
 import React from "react";
 import NFTcard from "./NftCard";
+import MyNFTcard from "./myNftCard";
+import { shortenAddress } from "thirdweb/utils";
 
-const MyNFTs = () => {
-  const array = [1, 2, 3, 4, 5, 6];
+const MyNFTs = ({ ownedNFTs }: { ownedNFTs: any }) => {
+
   return (
-    <div className="carousel rounded-box">
-      {array.map((eachItem, index) => (
-        <NFTcard key={index} eachItem={eachItem} />
-      ))}
+    <div className="flex flex-col items-center justify-center">
+      <span>Owned by Me </span>{shortenAddress(ownedNFTs[0].owner)}
+      <div className="carousel rounded-box ml-5">
+        {ownedNFTs.map((eachItem: any, index: number) => (
+          <MyNFTcard key={index} eachItem={eachItem} />
+        ))}
+      </div>
     </div>
   );
 };

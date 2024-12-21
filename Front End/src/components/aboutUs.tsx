@@ -5,7 +5,7 @@ const AboutUs = () => {
     <div className="hero bg-base-100 min-h-screen">
       <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-8">
         <img
-          src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+          src="/images/preview.gif"
           className="max-w-sm rounded-lg shadow-2xl "
         />
 

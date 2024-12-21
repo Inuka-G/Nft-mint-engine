@@ -7,23 +7,38 @@ import {
   NFTName,
   NFTProvider,
 } from "thirdweb/react";
+import { shortenAddress } from "thirdweb/utils";
 
 const NFTcard = ({ eachItem }: any) => {
+  let { image, name, owner } = eachItem
+  image = image?.split("ipfs://")[1];
+  let address = "0xc621998b9A797425583deC871cA6682628B1214D"
+  if (owner.owner) {
+    address = owner.owner
+  }
+  const shortAddress = shortenAddress(address)
+  
+
   return (
     <div className="carousel-item m-7">
-      {/* <MediaRenderer
-        width="300px"
-        client={client}
-        src={
-          "https://ipfs.io/ipfs/bafybeicdj5sqxh4djpkmtjwnvevf4uav4tnwv75i7b6im3bprgfyn4slxq/1.png"
-        }
-      /> */}
-      <img
-        className="rounded-box"
-        width={"300px"}
-        src={`https://ipfs.io/ipfs/bafybeicdj5sqxh4djpkmtjwnvevf4uav4tnwv75i7b6im3bprgfyn4slxq/${eachItem}.png`}
-        alt=""
-      />
+      <div className="card card-compact bg-base-100 w-96 shadow-xl">
+        <figure>
+          <img
+            className="rounded-box"
+            width={"300px"}
+            src={`https://ipfs.io/ipfs/${image}`}
+            alt=""
+          />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">{name}</h2>
+
+          <div className="card-actions justify-end">
+            <span>{shortAddress || "0xa0cf798816d4b9b9866b5330eea46a18382f251e"}</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };

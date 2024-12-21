@@ -53,11 +53,11 @@ const MintModal = ({
                 prepareContractCall({
                   contract,
                   method:
-                    "function mint(address to,uint256 qunatity,string memory tokenURI)",
+                    "function mint(address to,uint256 qunatity)",
                   params: [
                     account?.address,
                     BigInt(1),
-                    "https://ipfs.io/ipfs/Qme5mxMo43hGrfnHJ6m7xaqj9zbrL5mHMHtr1cjFpKTPna?filename=3.png",
+
                   ],
                   value: toWei(mintPrice),
                 })

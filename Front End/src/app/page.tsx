@@ -14,8 +14,8 @@ import {
 import { contract, client } from "@/client";
 import { toEther } from "thirdweb";
 
-const Home =  () => {
- 
+const Home = () => {
+
   const account = useActiveAccount();
   const { data: price } = useReadContract({
     contract,
@@ -67,10 +67,7 @@ const Home =  () => {
       <AboutUs />
       <RoadMap />
       <FAQ />
-      <MediaRenderer
-        client={client}
-        src="ipfs://bafybeicdj5sqxh4djpkmtjwnvevf4uav4tnwv75i7b6im3bprgfyn4slxq/2.png"
-      />
+
     </div>
   );
 };

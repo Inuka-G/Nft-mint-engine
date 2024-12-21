@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import { ThirdwebProvider } from "thirdweb/react";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export const poppins = Outfit({
   weight: "400",
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </ThirdwebProvider>
+        <Footer />
       </body>
     </html>
   );

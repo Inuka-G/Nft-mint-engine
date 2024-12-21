@@ -5,12 +5,15 @@ import { MediaRenderer, useActiveAccount } from "thirdweb/react";
 import { contract, client } from "@/client";
 import NFTcard from "./NftCard";
 
-const AllNFTs = () => {
-  const array = [6, 7, 1, 2, 3, 4, 5];
+const AllNFTs = ({ metadata, owners }: { metadata: any; owners: any }) => {
+
+  for (let i = 0; i < metadata.length; i++) {
+    metadata[i].owner = owners[i]
+  }
   return (
     <>
       <div className="carousel rounded-box ml-5">
-        {array.map((eachItem, index) => (
+        {metadata?.map((eachItem: {}, index: number) => (
           <NFTcard key={index} eachItem={eachItem} />
         ))}
       </div>

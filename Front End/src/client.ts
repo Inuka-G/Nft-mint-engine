@@ -9,7 +9,7 @@ export const client = createThirdwebClient({
 
 export const contract = getContract({
   client,
-  address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  address: process.env.CONTRACT_ADDRESS as string,
   chain: defineChain({ id: 31337, rpc: "http://127.0.0.1:8545" }),
   // abi: [
   //   { type: "constructor", inputs: [], stateMutability: "nonpayable" },
